@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple App</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is running in a docker container</p>
+  </body>
+</html>
+
+FROM nginx:stable-alpine3.17-slim
+COPY index.html /usr/share/nginx/html
+
+EXPOSE 80 
+CMD ["nginx", "-g", "daemon off;"]
